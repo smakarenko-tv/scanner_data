@@ -4,10 +4,6 @@
 		"type": "number"
 	},
 	{
-		"name": "minmov",
-		"type": "number"
-	},
-	{
 		"name": "minmove2",
 		"type": "number"
 	},
