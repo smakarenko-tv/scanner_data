@@ -963,5 +963,13 @@
     {
         "name": "price_earnings_growth_ttm",
         "type": "number"
+    },
+    {
+        "name": "all_time_high_day",
+        "type": "time"
+    },
+    {
+        "name": "all_time_low_day",
+        "type": "number"
     }
 ]
