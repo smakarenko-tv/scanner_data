@@ -239,6 +239,6 @@
   },
   {
     "name": "all_time_low_day",
-    "type": "number"
+    "type": "time"
   }
 ]
