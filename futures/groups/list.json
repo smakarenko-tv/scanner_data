@@ -2,9 +2,11 @@
   "time": "2018-05-23T18:00:00.270Z",
   "fields": [],
   "symbols": [
+    { "f": [], "s": "ADX"},
     { "f": [], "s": "BET"},
     { "f": [], "s": "BIST"},
     { "f": [], "s": "BMFBOVESPA"},
+    { "f": [], "s": "BSE"},
     { "f": [], "s": "CBOE"},
     { "f": [], "s": "CBOT"},
     { "f": [], "s": "CBOT_MINI"},
@@ -22,15 +24,18 @@
     { "f": [], "s": "ICEUS"},
     { "f": [], "s": "MATBAROFEX"},
     { "f": [], "s": "MCX"},
+    { "f": [], "s": "MGEX"},
     { "f": [], "s": "MOEX"},
     { "f": [], "s": "MYX"},
     { "f": [], "s": "NCDEX"},
     { "f": [], "s": "NSE"},
     { "f": [], "s": "NYMEX"},
     { "f": [], "s": "NYMEX_MINI"},
+    { "f": [], "s": "NZX"},
     { "f": [], "s": "OSE"},
     { "f": [], "s": "SGX"},
     { "f": [], "s": "TFEX"},
+    { "f": [], "s": "TFX"},
     { "f": [], "s": "TOCOM"}
   ]
 }
