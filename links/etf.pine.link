@@ -83,34 +83,89 @@ fundPerfYTD()=>
         perf
 
 
+float fund_flows1M = na
+float fund_flows3M = na
+float fund_flows1Y = na
+float fund_flows3Y = na
+float fund_flows5Y = na
+float fund_flowsYTD = na
 
-fund_flows1M = request.security(makeFundFlowsTicker(), getFundTF(), sum(oneMonth), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-fund_flows3M = request.security(makeFundFlowsTicker(), getFundTF(), sum(threeMonthes), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-fund_flows1Y = request.security(makeFundFlowsTicker(), getFundTF(), sum(oneYear), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-fund_flows3Y = request.security(makeFundFlowsTicker(), getFundTF(), sum(threeYears), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-fund_flows5Y = request.security(makeFundFlowsTicker(), getFundTF(), sum(fiveYears), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-fund_flowsYTD = request.security(makeFundFlowsTicker(), getFundTF(), sumYTD(), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+float navPerf1M = na
+float navPerf3M = na
+float navPerf1Y = na
+float navPerf3Y = na
+float navPerf5Y = na
+float navPerfYTD = na
 
-navPerf1M = request.security(makeNavTicker(), getFundTF(), fundPerf(oneMonth, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navPerf3M = request.security(makeNavTicker(), getFundTF(), fundPerf(threeMonthes, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navPerf1Y = request.security(makeNavTicker(), getFundTF(), fundPerf(oneYear, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navPerf3Y = request.security(makeNavTicker(), getFundTF(), fundPerf(threeYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navPerf5Y = request.security(makeNavTicker(), getFundTF(), fundPerf(fiveYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navPerfYTD = request.security(makeNavTicker(), getFundTF(), fundPerfYTD(), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+float aumPerf1M = na
+float aumPerf3M = na
+float aumPerf1Y = na
+float aumPerf3Y = na
+float aumPerf5Y = na
+float aumPerfYTD = na
 
-aumPerf1M = request.security(makeAumTicker(), getFundTF(), fundPerf(oneMonth, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-aumPerf3M = request.security(makeAumTicker(), getFundTF(), fundPerf(threeMonthes, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-aumPerf1Y = request.security(makeAumTicker(), getFundTF(), fundPerf(oneYear, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-aumPerf3Y = request.security(makeAumTicker(), getFundTF(), fundPerf(threeYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-aumPerf5Y = request.security(makeAumTicker(), getFundTF(), fundPerf(fiveYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-aumPerfYTD = request.security(makeAumTicker(), getFundTF(), fundPerfYTD(), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+float navTotalReturn1M = na
+float navTotalReturn3M = na
+float navTotalReturn1Y = na
+float navTotalReturn3Y = na
+float navTotalReturn5Y = na
+float navTotalReturnYTD = na
 
-navTotalReturn1M = request.security(makeNavAllTicker(), getFundTF(), fundPerf(oneMonth, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navTotalReturn3M = request.security(makeNavAllTicker(), getFundTF(), fundPerf(threeMonthes, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navTotalReturn1Y = request.security(makeNavAllTicker(), getFundTF(), fundPerf(oneYear, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navTotalReturn3Y = request.security(makeNavAllTicker(), getFundTF(), fundPerf(threeYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navTotalReturn5Y = request.security(makeNavAllTicker(), getFundTF(), fundPerf(fiveYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
-navTotalReturnYTD = request.security(makeNavAllTicker(), getFundTF(), fundPerfYTD(), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_fund_flows1M()=> request.security(makeFundFlowsTicker(), getFundTF(), sum(oneMonth), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_fund_flows3M()=> request.security(makeFundFlowsTicker(), getFundTF(), sum(threeMonthes), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_fund_flows1Y()=> request.security(makeFundFlowsTicker(), getFundTF(), sum(oneYear), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_fund_flows3Y()=> request.security(makeFundFlowsTicker(), getFundTF(), sum(threeYears), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_fund_flows5Y()=> request.security(makeFundFlowsTicker(), getFundTF(), sum(fiveYears), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_fund_flowsYTD()=> request.security(makeFundFlowsTicker(), getFundTF(), sumYTD(), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+
+get_navPerf1M()=> request.security(makeNavTicker(), getFundTF(), fundPerf(oneMonth, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navPerf3M()=> request.security(makeNavTicker(), getFundTF(), fundPerf(threeMonthes, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navPerf1Y()=> request.security(makeNavTicker(), getFundTF(), fundPerf(oneYear, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navPerf3Y()=> request.security(makeNavTicker(), getFundTF(), fundPerf(threeYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navPerf5Y()=> request.security(makeNavTicker(), getFundTF(), fundPerf(fiveYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navPerfYTD()=> request.security(makeNavTicker(), getFundTF(), fundPerfYTD(), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+
+get_aumPerf1M()=> request.security(makeAumTicker(), getFundTF(), fundPerf(oneMonth, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_aumPerf3M()=> request.security(makeAumTicker(), getFundTF(), fundPerf(threeMonthes, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_aumPerf1Y()=> request.security(makeAumTicker(), getFundTF(), fundPerf(oneYear, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_aumPerf3Y()=> request.security(makeAumTicker(), getFundTF(), fundPerf(threeYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_aumPerf5Y()=> request.security(makeAumTicker(), getFundTF(), fundPerf(fiveYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_aumPerfYTD()=> request.security(makeAumTicker(), getFundTF(), fundPerfYTD(), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+
+get_navTotalReturn1M()=> request.security(makeNavAllTicker(), getFundTF(), fundPerf(oneMonth, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navTotalReturn3M()=> request.security(makeNavAllTicker(), getFundTF(), fundPerf(threeMonthes, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navTotalReturn1Y()=> request.security(makeNavAllTicker(), getFundTF(), fundPerf(oneYear, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navTotalReturn3Y()=> request.security(makeNavAllTicker(), getFundTF(), fundPerf(threeYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navTotalReturn5Y()=> request.security(makeNavAllTicker(), getFundTF(), fundPerf(fiveYears, 10), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+get_navTotalReturnYTD()=> request.security(makeNavAllTicker(), getFundTF(), fundPerfYTD(), ignore_invalid_symbol=true, gaps=barmerge.gaps_off)
+
+symbol_type = syminfo.type
+
+if (symbol_type == "fund" or symbol_type == "structured")
+	fund_flows1M := get_fund_flows1M()
+	fund_flows3M := get_fund_flows3M()
+	fund_flows1Y := get_fund_flows1Y()
+	fund_flows3Y := get_fund_flows3Y()
+	fund_flows5Y := get_fund_flows5Y()
+	fund_flowsYTD := get_fund_flowsYTD()
+	navPerf1M := get_navPerf1M()
+	navPerf3M := get_navPerf3M()
+	navPerf1Y := get_navPerf1Y()
+	navPerf3Y := get_navPerf3Y()
+	navPerf5Y := get_navPerf5Y()
+	navPerfYTD := get_navPerfYTD()
+	aumPerf1M := get_aumPerf1M()
+	aumPerf3M := get_aumPerf3M()
+	aumPerf1Y := get_aumPerf1Y()
+	aumPerf3Y := get_aumPerf3Y()
+	aumPerf5Y := get_aumPerf5Y()
+	aumPerfYTD := get_aumPerfYTD()
+	navTotalReturn1M := get_navTotalReturn1M()
+	navTotalReturn3M := get_navTotalReturn3M()
+	navTotalReturn1Y := get_navTotalReturn1Y()
+	navTotalReturn3Y := get_navTotalReturn3Y()
+	navTotalReturn5Y := get_navTotalReturn5Y()
+	navTotalReturnYTD := get_navTotalReturnYTD()
 
 plot(fund_flows1M, title="fund_flows.1M")
 plot(fund_flows3M, title="fund_flows.3M")
