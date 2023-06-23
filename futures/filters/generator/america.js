@@ -32,7 +32,7 @@ continuesSrc.fields.push("root");
 
 const groups = JSON.parse(fs.readFileSync(groupsPath)).symbols.map(s => s.s);
 
-const rxFuturesNamesParser = /(\w+:?\w+)([FGHJKMNQUVXZ])(\d{4})/;
+const rxFuturesNamesParser = /(\w+:?[\w.]+)([FGHJKMNQUVXZ])(\d{4})/;
 
 function monthFromLetter(l) {
     const idx = 'FGHJKMNQUVXZ'.indexOf(l.toUpperCase());
@@ -69,7 +69,7 @@ function isExpired(parseRes) {
 }
 
 groups.forEach(function (path) {
-    let url = "http://udf-proxy.tradingview.com:8094/symbols?domain=tv&symbol=%21%24%7C%5Cd%7B4%2C%7D%24&prefix=" + path; //symbol=!$%7C\d{4,}
+    let url = "http://udf-proxy.tradingview.com:8094/symbols?type=futures&domain=tv&symbol=%21%24%7C%5Cd%7B4%2C%7D%24&prefix=" + path; //symbol=!$%7C\d{4,}
     const urlO = new URL(url);
     urlO.searchParams.append('fields', 'symbol');
     url = urlO.toString();
