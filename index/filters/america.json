@@ -176,6 +176,15 @@
         },
         {
             "s": "TVC:DXY"
+        },
+        {
+            "s": "CBOE:SPX"
+        },
+        {
+            "s": "CBOE:VXN"
+        },
+        {
+            "s": "SP:SPXTR"
         }
     ]
 }
