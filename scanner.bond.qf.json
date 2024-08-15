@@ -401,8 +401,16 @@
       "type": "final_percent"
     },
     {
+      "name": "current_yield",
+      "type": "final_percent"
+    },
+    {
       "name": "measure",
       "type": "text"
+    },
+    {
+      "name": "current_yield",
+      "type": "final_percent"
     },
     {
       "name": "bond_deepest_history_symbol",
