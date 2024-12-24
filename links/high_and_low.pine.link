@@ -70,10 +70,12 @@ fastSearchTimeIndex(x, maxbarsback) =>
 	mid = 0 * time[maxbarsback]
 	right = math.min(bar_index, maxbarsback)
 	left = 0
-	if time < x
+	if x/1000 <= first_bar_time
+		bar_index
+	else if time < x
 		0
 	else
-		for i = 0 to 9 by 1
+		for i = 0 to 10
 			mid := math.ceil((left + right) / 2)
 			if left == right
 				break
