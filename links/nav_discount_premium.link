@@ -9,5 +9,8 @@ getNAV(finTicker) =>
 	else
 		sec
 var finTicker = __financial_tickerid(getSymbolName(symbolName), "NAV", "D")
-nav_discount_premium = ((close / getNAV(finTicker)) - 1) * 100
+nav = getNAV(finTicker)
+var float nav_discount_premium = na
+if not na(nav)
+    nav_discount_premium := ((close / nav) - 1) * 100
 plot(nav_discount_premium, title = "nav_discount_premium")
